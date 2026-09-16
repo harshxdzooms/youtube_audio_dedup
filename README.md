@@ -82,7 +82,7 @@ The bootstrapper prepends the local tool directory to `PATH` so the application 
 
 If you want to use an AcoustID API key for global duplicate detection:
 
-1. Register at https://acoustid.org/api
+1. Register at https://acoustid.org/api-key
 2. Get your API key
 3. Edit `config.py` and set:
    ```python

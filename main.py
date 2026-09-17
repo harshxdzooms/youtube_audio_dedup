@@ -200,6 +200,7 @@ class YouTubeAudioDedupSystem:
             size_mb = f.stat().st_size / (1024 * 1024)
             total_mb += size_mb
             print(f"  {f.name}  ({size_mb:.2f} MB)")
+            print()
         print(f"\n  Total: {total_mb:.2f} MB")
 
     # -------------------------------------------------------- CLEAR DB

@@ -235,7 +235,15 @@ class YouTubeDownloader:
             return None
 
     def list_downloaded_files(self) -> List[Path]:
-        return list(self.download_folder.glob(f"*.{AUDIO_FORMAT}"))
+        suffix = f".{AUDIO_FORMAT}".lower()
+        return sorted(
+            (
+                path
+                for path in self.download_folder.iterdir()
+                if path.is_file() and path.suffix.lower() == suffix
+            ),
+            key=lambda path: path.name.casefold(),
+        )
 
 
 if __name__ == "__main__":

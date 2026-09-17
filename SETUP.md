@@ -179,7 +179,7 @@ This installs:
 
 For global duplicate detection:
 
-1. Register at https://acoustid.org/api
+1. Register at https://acoustid.org/api-key
 2. Get your API key
 3. Edit `config.py`:
    ```python
@@ -339,7 +339,7 @@ pip install -r requirements.txt
 ### Recommended Steps
 
 1. **Create API Key** (optional):
-   - Register at https://acoustid.org/api
+   - Register at https://acoustid.org/api-key
    - Add to `config.py`
 
 2. **Test the System**:

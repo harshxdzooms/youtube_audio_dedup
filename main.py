@@ -128,7 +128,12 @@ class YouTubeAudioDedupSystem:
                 continue
 
             # --- Step 5: Store fingerprint
-            self.fingerprinter.store_fingerprint(video_id, file_path, video_title, int(duration))
+            stored = self.fingerprinter.store_fingerprint(
+                video_id, file_path, video_title, int(duration)
+            )
+            if not stored:
+                print("  [WARNING] Downloaded file was not added to the fingerprint database")
+                continue
 
             downloaded += 1
             size_mb = file_path.stat().st_size / (1024 * 1024) if file_path.exists() else 0

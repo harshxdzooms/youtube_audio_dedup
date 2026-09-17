@@ -1,5 +1,6 @@
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from bootstrap import parse_requirements, select_ffmpeg_asset_name, select_chromaprint_asset_name
 
@@ -31,6 +32,17 @@ class BootstrapTests(unittest.TestCase):
             select_chromaprint_asset_name('Darwin', 'arm64'),
             'chromaprint-fpcalc-1.5.1-macos-arm64.tar.gz',
         )
+
+    @patch('bootstrap.has_internet', return_value=False)
+    @patch('bootstrap._is_usable_executable', return_value=False)
+    @patch('bootstrap.locate_executable', side_effect=['bad-ffmpeg', 'bad-ffprobe'])
+    def test_ffmpeg_rejects_unusable_discovered_tools(
+        self, _mock_locate, _mock_usable, _mock_internet
+    ):
+        from bootstrap import ensure_ffmpeg_available
+
+        with self.assertRaisesRegex(RuntimeError, 'FFmpeg is missing'):
+            ensure_ffmpeg_available()
 
 
 if __name__ == '__main__':

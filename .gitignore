@@ -80,6 +80,7 @@ api_keys.txt
 .coverage
 htmlcov/
 .tox/
+build_tests/*.exe
 
 # Temporary files
 *.temp

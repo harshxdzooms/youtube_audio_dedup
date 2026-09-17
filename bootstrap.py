@@ -321,7 +321,12 @@ def ensure_ffmpeg_available() -> Tuple[str, str]:
     ffmpeg_path = locate_executable("ffmpeg", [FFMPEG_TOOLS_DIR, TOOLS_DIR])
     ffprobe_path = locate_executable("ffprobe", [FFMPEG_TOOLS_DIR, TOOLS_DIR])
 
-    if ffmpeg_path and ffprobe_path:
+    if (
+        ffmpeg_path
+        and ffprobe_path
+        and _is_usable_executable(ffmpeg_path)
+        and _is_usable_executable(ffprobe_path)
+    ):
         return ffmpeg_path, ffprobe_path
 
     if not has_internet():
@@ -362,8 +367,10 @@ def ensure_ffmpeg_available() -> Tuple[str, str]:
 
     ffmpeg_path = str(ffmpeg_dest)
     ffprobe_path = str(ffprobe_dest)
-    subprocess.run([ffmpeg_path, "-version"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.run([ffprobe_path, "-version"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if not _is_usable_executable(ffmpeg_path) or not _is_usable_executable(ffprobe_path):
+        raise RuntimeError(
+            "FFmpeg download completed, but ffmpeg or ffprobe could not be started."
+        )
     print_status("[OK]", f"FFmpeg installed locally at {final_dir}")
     return ffmpeg_path, ffprobe_path
 

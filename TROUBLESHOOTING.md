@@ -367,7 +367,7 @@ fpcalc -version
 
 **Solutions**:
 ```bash
-# Register at https://acoustid.org/api
+# Register at https://acoustid.org/api-key
 # Add key to config.py
 
 # Verify key

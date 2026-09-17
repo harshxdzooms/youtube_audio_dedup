@@ -49,7 +49,7 @@ MAX_CONCURRENT_DOWNLOADS = 10  # Only if you have good bandwidth
 
 ## Example 5: Add Custom API Key
 
-Register at https://acoustid.org/api and add:
+Register at https://acoustid.org/api-key and add:
 
 ```python
 ACOUSTID_API_KEY = "YOUR_ACTUAL_API_KEY_HERE"

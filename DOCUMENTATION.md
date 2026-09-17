@@ -166,7 +166,7 @@ What can this system do?
 - **yt-dlp**: https://github.com/yt-dlp/yt-dlp
 - **FFmpeg**: https://ffmpeg.org/
 - **Chromaprint**: https://acoustid.org/chromaprint
-- **AcoustID API**: https://acoustid.org/api
+- **AcoustID API**: https://acoustid.org/api-key
 - **Python**: https://docs.python.org/3/
 
 ## 🎓 Technical Details

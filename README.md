@@ -129,10 +129,10 @@ DEFAULT_SEARCH_COUNT = 10            # Default search count
 
 # Duration (seconds)
 MIN_DURATION_SECONDS = 60            # 1 minute
-MAX_DURATION_SECONDS = 600           # 10 minutes
+MAX_DURATION_SECONDS = 420           # 7 minutes
 
 # Similarity Threshold (0.0 to 1.0)
-TITLE_SIMILARITY_THRESHOLD = 0.85    # 85% match = duplicate
+TITLE_SIMILARITY_THRESHOLD = 0.72    # 72% match = duplicate
 
 # Download Settings
 MAX_CONCURRENT_DOWNLOADS = 5         # Parallel downloads
@@ -159,7 +159,8 @@ The system provides an interactive menu:
 2. View database statistics
 3. List downloaded files
 4. Clear database
-5. Exit
+6. Exit
+7. Download songs by artist
 ```
 
 ### Workflow Example
